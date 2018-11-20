@@ -1,0 +1,40 @@
+# Moments
+
+Initial setup
+-------------
+Add landing page
+Add moments page that list all events and their images
+
+Each moment has:
+*Event
+*Image
+
+#Layout and basic styling
+-------------------------
+Create header and footer partials to dry the code (Add html  boiler plate)
+Add in bootstrap
+
+Creating new events
+--------------------
+set up new event post route
+Add on body parser
+setup route to show form
+Add basic unstyled form
+
+#Style the campgrounds page
+----------------------------
+*Add a better header/title using jumbotron in bootstrap
+*Make events display in a grid
+
+#Style the Navbar and Form
+----------------------------
+* Add a navbar to all templates using the header.ejs
+* Style the new campground form
+
+* Center the form in the /moments/new page
+* Stack the fields to lay on top of each other, rather than the horizontal way it is
+
+***NOTE - Avoid doing inline styling
+
+# Pushing to git cheat sheet:
+http://lepidllama.net/blog/how-to-push-an-existing-cloud9-project-to-github/
