@@ -119,3 +119,16 @@ Changing all ejs naming convention from moments to dazzfuns for consistency
 #Install and configure mongoose
 #Setup dazzfun model
 #Use dazzfun model inside of my routes
+
+-------------------------------------------------------------------------------------------Committed
+
+#Review the RESTful routes
+# Add description to dazzfun model
+# show db.collection.drop()
+# Add a show route/template
+
+# Used  four of the RESTful routes:
+INDEX   /dazzfuns
+NEW     /dazzfuns/new
+CREATE  /dazzfuns
+SHOW    /dazzfuns/:id
