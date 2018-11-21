@@ -1,21 +1,35 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
+var express    = require("express"),
+    app        = express(),
+    bodyParser = require("body-parser"),
+    mongoose   = require("mongoose")
+    
+mongoose.connect("mongodb://localhost/dazz_fun"); // Connect to dazz_fun database
 
-var moments = [
-        {event: "First Walk", image: "https://farm9.staticflickr.com/8673/15989950903_8185ed97c3.jpg"},
-        {event: "Fun out", image: "https://farm8.staticflickr.com/7407/9647405948_b2bcd3ab57.jpg"},
-        {event: "Fun out", image: "https://farm7.staticflickr.com/6188/6208181463_40c4fd7049.jpg"},
-        {event: "First Walk", image: "https://farm9.staticflickr.com/8673/15989950903_8185ed97c3.jpg"},
-        {event: "Fun out", image: "https://farm8.staticflickr.com/7407/9647405948_b2bcd3ab57.jpg"},
-        {event: "Fun out", image: "https://farm7.staticflickr.com/6188/6208181463_40c4fd7049.jpg"},
-        {event: "First Walk", image: "https://farm9.staticflickr.com/8673/15989950903_8185ed97c3.jpg"},
-        {event: "Fun out", image: "https://farm8.staticflickr.com/7407/9647405948_b2bcd3ab57.jpg"},
-        {event: "Fun out", image: "https://farm7.staticflickr.com/6188/6208181463_40c4fd7049.jpg"},
-        {event: "First Walk", image: "https://farm9.staticflickr.com/8673/15989950903_8185ed97c3.jpg"},
-        {event: "Fun out", image: "https://farm8.staticflickr.com/7407/9647405948_b2bcd3ab57.jpg"},
-        {event: "Fun out", image: "https://farm7.staticflickr.com/6188/6208181463_40c4fd7049.jpg"}
-    ];
+// Shema Setup
+var dazzfunSchema = new mongoose.Schema({
+    event: String,
+    image: String
+    
+});
+
+// Compiling the schema into a model
+
+ var Dazzfun = mongoose.model("Dazzfun", dazzfunSchema);
+
+// Dazzfun.create(
+//     {
+//         event: "Fun out", 
+//         image: "https://farm8.staticflickr.com/7407/9647405948_b2bcd3ab57.jpg"
+        
+//     }, function(err, dazzfun){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             console.log("Newly Created dazzfun: ");
+//             console.log(dazzfun);
+//         }
+//     });
+
 
 app.use(bodyParser.urlencoded({extended: true})); // to use for getting form bbody
 app.set("view engine", "ejs"); //to avoid dding (.ejs) to every route
@@ -25,23 +39,37 @@ app.get("/", function(req, res){
 });
 
 // show all moments
-app.get("/moments", function(req, res){
-    
-    res.render("moments", {moments:moments});
+app.get("/dazzfuns", function(req, res){
+    // Get all dazzfuns from DB
+    Dazzfun.find({}, function(err, allDazzfuns){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("dazzfuns", {dazzfuns:allDazzfuns});
+        }
+    });
 });
 
 // get data from form and add to moments array
 // redirect back to get /moments and show all moments (following REST concept)
-app.post("/moments", function(req, res){
+app.post("/dazzfuns", function(req, res){
     var event = req.body.event;
     var image = req.body.image;
-    var newMoment = {event: event, image:image};
-    moments.push(newMoment);
-    res.redirect("/moments"); // redirect to get /moments page
+    var newDazzfun = {event: event, image:image};
+    // Create a new campground and save to database
+    Dazzfun.create(newDazzfun, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect("/dazzfuns"); // redirects back to dazzfuns page
+        }
+    
+});
 });
 
 // shows form for adding new moment and posts the added moment to POST /moment
-app.get("/moments/new", function(req, res){
+app.get("/dazzfuns/new", function(req, res){
+    
     res.render("new");
 });
 

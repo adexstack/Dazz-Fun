@@ -6,19 +6,19 @@
             <h1>Welcome to Dazz Fun!</h1>
             <p>View dazzling moments of friends and families</p>
             <p>
-                <a class="btn btn-primary btn-lg" href="/moments/new">Add New Event</a>
+                <a class="btn btn-primary btn-lg" href="/dazzfuns/new">Add New Event</a>
             </p>
         </div>
     </header>
     
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
 
-        <% moments.forEach(function(moment){ %>
+        <% dazzfuns.forEach(function(dazzfun){ %>
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
-                    <img src="<%= moment.image %>">
+                    <img src="<%= dazzfun.image %>">
                     <div class="caption">
-                        <h4> <%= moment.event %> </h4>
+                        <h4> <%= dazzfun.event %> </h4>
                     </div>
                 </div>
             </div>

@@ -38,3 +38,20 @@ Add basic unstyled form
 
 # Pushing to git cheat sheet:
 http://lepidllama.net/blog/how-to-push-an-existing-cloud9-project-to-github/
+
+-----------------------------------------------------------------------------------------------Committed 1
+
+
+ # Adding Data persistence
+----------------------------
+#Databases
+SQL vs NoSQL
+ -Choosing NoSQL to allow for flexibility by avoiding strict SQL schema bound 9Very flexible and dynamic)
+ - MongoDB because it sits well with the MEAN stack (MongoDB, Express, Angular, Node)
+ - Explore other database from the used ones
+ - The fourth most popular Database
+ 
+Changing all ejs naming convention from moments to dazzfuns for consistency
+#Install and configure mongoose
+#Setup dazzfun model
+#Use dazzfun model inside of my routes

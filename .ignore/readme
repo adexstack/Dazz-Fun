@@ -1,0 +1,121 @@
+# Moments
+
+Initial setup
+-------------
+Add landing page
+Add moments page that list all events and their images
+
+Each moment has:
+*Event
+*Image
+
+#Layout and basic styling
+-------------------------
+Create header and footer partials to dry the code (Add html  boiler plate)
+Add in bootstrap
+
+Creating new events
+--------------------
+set up new event post route
+Add on body parser
+setup route to show form
+Add basic unstyled form
+
+#Style the campgrounds page
+----------------------------
+*Add a better header/title using jumbotron in bootstrap
+*Make events display in a grid
+
+#Style the Navbar and Form
+----------------------------
+* Add a navbar to all templates using the header.ejs
+* Style the new campground form
+
+* Center the form in the /moments/new page
+* Stack the fields to lay on top of each other, rather than the horizontal way it is
+
+***NOTE - Avoid doing inline styling
+
+# Pushing to git cheat sheet:
+http://lepidllama.net/blog/how-to-push-an-existing-cloud9-project-to-github/
+
+-----------------------------------------------------------------------------------------------Committed 1
+
+#Databases
+SQL vs NoSQL
+ -Choosing NoSQL to allow for flexibility by avoiding strict SQL schema bound 9Very flexible and dynamic)
+ - MongoDB because it sits well with the MEAN stack (MongoDB, Express, Angular, Node)
+ - Explore other database from the used ones
+ - The fourth most popular Database
+ 
+See Setting up MongoDB; 
+https://community.c9.io/t/setting-up-mongodb/1717
+
+cd .. workspace/
+
+sudo apt-get install -y mongodb-org
+$ mkdir data
+$ echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
+$ chmod a+x mongod
+You can start mongodb by running the mongod script on your project root:
+$ ./mongod
+
+* mongod 
+* mongo 
+* help 
+* show dbs
+* use 
+* insert 
+* find 
+* update
+* remove
+
+From workspace terminal >mongo
+> use demo
+switched to db demo
+> show dbs
+admin  (empty)
+local  0.078GB
+> db.dogs.insert({name: "Rusty", breed: "Mutt"})
+WriteResult({ "nInserted" : 1 })
+> show collections
+dogs
+system.indexes
+> db.dogs.find()
+{ "_id" : ObjectId("5bf42aafafcbf403ff27f02f"), "name" : "Rusty", "breed" : "Mutt" }
+> db.dogs.insert({name: "Lucy", breed: "Mutt"})
+WriteResult({ "nInserted" : 1 })
+> db.dogs.find()
+{ "_id" : ObjectId("5bf42aafafcbf403ff27f02f"), "name" : "Rusty", "breed" : "Mutt" }
+{ "_id" : ObjectId("5bf42b30afcbf403ff27f030"), "name" : "Lucy", "breed" : "Mutt" }
+> db.dogs.find({name: "Rusty"))
+> db.dogs.insert({name: "Lucy", breed: "Mutt"})
+> db.dogs.update({name: "Lucy"}, {breed: "Mutana"})
+> db.dogs.find()
+{ "_id" : ObjectId("5bf42b30afcbf403ff27f030"), "breed" : "Mutana" } // note that the name has been overridden as we did not make use of #set
+> db.dogs.update({name: "Rusty"}, {$set: {name: "Tatar", isCute: true}}) // updating and preserving
+> db.dogs.remove({breed: "Poodle"}) // to remove a particular breed
+> db.dogs.remove({breed: "Poodle"}).limit(1) // To limit the number of matching objects that could be deleted
+
+# To check your db is connected and working for dazzfun
+> mongo
+>show dbs >use<db> >show collections >db.dazzfuns.find()
+
+CRUD - Create, Remove, Update, Delete
+
+mongoosejs.com
+mongoose is an ODM (object data mapper)
+It allows us to write js object which would be mapped to our db
+it's basically a js layer on top of mongodbb
+Hint: Mongoose makes it easy to interact with mongodb database Just as jquery makes it easy to interact with the dom As we dont have to use jquery or mongoose.
+
+# Unclean shutdown detected when not shut down properly with Ctrl C
+killall mongod ; cd ; ./mongod --repair ; cd data ; rm -rf mongod.lock ; cd ; ./mongod
+> ./mongod --repair ; ./mongod  // Easier and better solution
+
+# Data persistence todo
+----------------------------
+Changing all ejs naming convention from moments to dazzfuns for consistency
+#Install and configure mongoose
+#Setup dazzfun model
+#Use dazzfun model inside of my routes
