@@ -3,9 +3,10 @@ var express    = require("express"),
     bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
     Dazzfun    = require("./models/dazzfun"),
+    Comment    = require("./models/comment"),
     seedDB     = require("./seeds");
 
-mongoose.connect("mongodb://localhost/dazz_fun3"); // Connect to dazz_fun database
+mongoose.connect("mongodb://localhost/dazz_fun4"); // Connect to dazz_fun database
 app.use(bodyParser.urlencoded({extended: true})); // to use for getting form bbody
 app.set("view engine", "ejs"); //to avoid dding (.ejs) to every route
 seedDB(); 
@@ -21,7 +22,7 @@ app.get("/dazzfuns", function(req, res){
         if(err){
             console.log(err);
         } else {
-            res.render("index", {dazzfuns:allDazzfuns});
+            res.render("dazzfuns/index", {dazzfuns:allDazzfuns});
         }
     });
 });
@@ -49,7 +50,7 @@ app.post("/dazzfuns", function(req, res){
 // shows form for adding new dazzfun and posts the added dazzfun to POST /dazzfuns
 app.get("/dazzfuns/new", function(req, res){
     
-    res.render("new");
+    res.render("dazzfuns/new");
 });
 
 //SHOW route - show more details about a dazzfun event. Note that it is at the buttom so it doesnt override similar matching route
@@ -61,13 +62,51 @@ app.get("/dazzfuns/:id", function(req, res){
        }  else {
            console.log(foundDazzfun)
             // render show template with that particular event
-            res.render("show", {dazzfun: foundDazzfun});
+            res.render("dazzfuns/show", {dazzfun: foundDazzfun});
            
        }
     });
     
 });
 
+//====================================
+// COMMENT ROUTES
+//====================================
+
+app.get("/dazzfuns/:id/comments/new" , function(req, res) {
+    // find campground by id
+    Dazzfun.findById(req.params.id, function(err, dazzfun){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("comments/new", {dazzfun: dazzfun});
+        }
+    });
+});
+
+app.post("/dazzfuns/:id/comments", function(req, res){
+    //lookup dazzfun using ID
+    Dazzfun.findById(req.params.id, function(err, dazzfun){
+        if(err){
+            console.log(err);
+            res.redirect("/dazzfuns");
+        } else {
+            // create new comment
+            Comment.create(req.body.comment, function(err, comment){
+                if(err){
+                    console.log(err);
+                } else {
+                    // connect new comment to dazzfun
+                    dazzfun.comments.push(comment);
+                    dazzfun.save();
+                    // redirect dazzfun show page
+                    res.redirect('/dazzfuns/' + dazzfun.id);
+                }
+            });
+        }
+    });
+});
+    
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("dazz-fun started!!!");
 });

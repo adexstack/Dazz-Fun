@@ -1,13 +1,17 @@
-<% include partials/header %>
+<% include ../partials/header %>
 <h1><%=dazzfun.event%></h1>
 
 <img src="<%= dazzfun.image %>">
 
 <p><%= dazzfun.description %></p>
 
+<p>
+    <a class="btn btn-success" href="/dazzfuns/<%= dazzfun.id %>/comments/new">Add New Comment</a>
+</p>
+
 <% dazzfun.comments.forEach(function(comment){ %>
      <p> 
         <strong><%= comment.author %></strong> - <%= comment.text %>
      </p>
 <% }) %>
-<% include partials/footer %>
+<% include ../partials/footer %>

@@ -158,3 +158,11 @@ Destroy /dazzfun/:id       Delete
 * Using Nested routes
 * Add the comment new and create routes
 * Add the new comment form
+
+* NEW  dazzfuns/:id/comments/new  GET
+* CREATE dazzfuns/:id/commenets   POST
+
+* Created two new directories under "VIEW" to have dazzfuns and comments template seperate
+* Added "Add New Comment" button in the show page
+
+-----------------------------------------------------------------------------------------------Committed v4
