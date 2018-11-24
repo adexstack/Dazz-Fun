@@ -110,7 +110,7 @@ it's basically a js layer on top of mongodbb
 Hint: Mongoose makes it easy to interact with mongodb database Just as jquery makes it easy to interact with the dom As we dont have to use jquery or mongoose.
 
 # Unclean shutdown detected when not shut down properly with Ctrl C
-killall mongod ; cd ; ./mongod --repair ; cd data ; rm -rf mongod.lock ; cd ; ./mongod
+cd data ; rm -rf mongod.lock ; cd .. ; ./mongod
 > ./mongod --repair ; ./mongod  // Easier and better solution
 
 # Data persistence todo
@@ -128,7 +128,33 @@ Changing all ejs naming convention from moments to dazzfuns for consistency
 # Add a show route/template
 
 # Used  four of the RESTful routes:
-INDEX   /dazzfuns
-NEW     /dazzfuns/new
-CREATE  /dazzfuns
-SHOW    /dazzfuns/:id
+INDEX   /dazzfuns          Get
+NEW     /dazzfuns/new      Get
+CREATE  /dazzfuns          Post
+SHOW    /dazzfuns/:id      Get
+
+
+-------------------------------------------------------------------------------------------Committed
+Edit    /dazzfun/:id/edit  Get
+Update  /dazzfun/:id       PUT
+Destroy /dazzfun/:id       Delete
+
+# Refactor Mongoose Code
+* Create models directory
+* Use module.exports
+* Require everything completely
+
+#Add Seeds File
+*Add a seeds.js file
+* Run the seeds file every time the server starts
+
+# Add comment model
+* Make the error go away
+* Display comments on campground show page
+
+-----------------------------------------------------------------------------------------------Committed v3
+
+#Comment New/Create
+* Using Nested routes
+* Add the comment new and create routes
+* Add the new comment form

@@ -1,30 +1,20 @@
 var express    = require("express"),
     app        = express(),
     bodyParser = require("body-parser"),
-    mongoose   = require("mongoose")
-    
-mongoose.connect("mongodb://localhost/dazz_fun"); // Connect to dazz_fun database
+    mongoose   = require("mongoose"),
+    Dazzfun    = require("./models/dazzfun"),
+    seedDB     = require("./seeds");
 
-// Shema Setup
-var dazzfunSchema = new mongoose.Schema({
-    event: String,
-    image: String,
-    description: String
-    
-});
-
-// Compiling the schema into a model
-
- var Dazzfun = mongoose.model("Dazzfun", dazzfunSchema);
-
+mongoose.connect("mongodb://localhost/dazz_fun3"); // Connect to dazz_fun database
 app.use(bodyParser.urlencoded({extended: true})); // to use for getting form bbody
 app.set("view engine", "ejs"); //to avoid dding (.ejs) to every route
+seedDB(); 
 
 app.get("/", function(req, res){
     res.render("landing");
 });
 
-//INDEX Display a list of all events
+//INDEX - Shows all Events
 app.get("/dazzfuns", function(req, res){
     // Get all dazzfuns from DB
     Dazzfun.find({}, function(err, allDazzfuns){
@@ -65,10 +55,11 @@ app.get("/dazzfuns/new", function(req, res){
 //SHOW route - show more details about a dazzfun event. Note that it is at the buttom so it doesnt override similar matching route
 app.get("/dazzfuns/:id", function(req, res){
     // find the event with provided ID
-    Dazzfun.findById(req.params.id, function(err, foundDazzfun){
+    Dazzfun.findById(req.params.id).populate("comments").exec(function(err, foundDazzfun){
        if(err){
            console.log(err);
        }  else {
+           console.log(foundDazzfun)
             // render show template with that particular event
             res.render("show", {dazzfun: foundDazzfun});
            

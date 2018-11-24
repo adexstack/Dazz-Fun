@@ -39,7 +39,7 @@ Add basic unstyled form
 # Pushing to git cheat sheet:
 http://lepidllama.net/blog/how-to-push-an-existing-cloud9-project-to-github/
 
------------------------------------------------------------------------------------------------Committed 1
+-----------------------------------------------------------------------------------------------First Commit
 
 
  # Adding Data persistence
@@ -56,11 +56,30 @@ Changing all ejs naming convention from moments to dazzfuns for consistency
 #Setup dazzfun model
 #Use dazzfun model inside of my routes
 
----------------------------------------------------------------------------------------------Committed 2
+---------------------------------------------------------------------------------------------Committed v1
 # Used  four of the seven RESTful routes
 # Renamed dazzfuns.ejs to index.ejs to obey RESTful convention
 # Add description to dazzfun model
 # db.collection.drop() to have a clean DB to accommodate for new model
 # Add a show route/template
 
------------------------------------------------------------------------------------------------Committed 3
+-----------------------------------------------------------------------------------------------Committed v2
+# Refactor Mongoose Code
+* Create models directory
+* Use module.exports
+* Require everything completely
+
+#Add Seeds File
+*Add a seeds.js file
+* Run the seeds file every time the server starts
+
+# Add comment model
+* Make the error go away
+* Display comments on campground show page
+
+-----------------------------------------------------------------------------------------------Committed v3
+
+#Comment New/Create
+* Using Nested routes
+* Add the comment new and create routes
+* Add the new comment form
