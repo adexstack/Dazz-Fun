@@ -9,6 +9,7 @@ var express    = require("express"),
 mongoose.connect("mongodb://localhost/dazz_fun4"); // Connect to dazz_fun database
 app.use(bodyParser.urlencoded({extended: true})); // to use for getting form bbody
 app.set("view engine", "ejs"); //to avoid dding (.ejs) to every route
+app.use(express.static(__dirname + "/public")); // connecting script to the public directory
 seedDB(); 
 
 app.get("/", function(req, res){

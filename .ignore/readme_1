@@ -166,3 +166,14 @@ Destroy /dazzfun/:id       Delete
 * Added "Add New Comment" button in the show page
 
 -----------------------------------------------------------------------------------------------Committed v4
+
+Add side bar
+Style the show page:
+    Removing padding
+    Making thumbnail 100% width
+Add a custom main.css stylesheet in public/stylesheets directory
+Linked to it in app.js and header.ejs files
+ Using: app.use(express.static(__dirname + "/public")); // connecting script to the public directory
+
+
+-----------------------------------------------------------------------------------------------Committed v5

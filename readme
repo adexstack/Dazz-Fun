@@ -91,3 +91,9 @@ Changing all ejs naming convention from moments to dazzfuns for consistency
 * Added "Add New Comment" button in the show page
 
 -----------------------------------------------------------------------------------------------Committed v4
+
+Add side bar
+Style the show page
+Add a custom main.css stylesheet in public/stylesheets directory
+
+-----------------------------------------------------------------------------------------------Committed v5
