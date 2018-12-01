@@ -5,7 +5,7 @@ Initial setup
 Add landing page
 Add moments page that list all events and their images
 
-Each moment has:
+#Each moment has:
 *Event
 *Image
 
@@ -94,6 +94,7 @@ Changing all ejs naming convention from moments to dazzfuns for consistency
 
 "Add side bar
 Style the show page
+<<<<<<< HEAD
 Add a custom main.css stylesheet in public/stylesheets directory"
 
 -----------------------------------------------------------------------------------------------Committed v5
@@ -122,3 +123,8 @@ Add login template
 *Show/hide auth links correctly
 
 -----------------------------------------------------------------------------------------------Committed v6
+=======
+Add a custom main.css stylesheet in public/stylesheets directory
+
+-----------------------------------------------------------------------------------------------Committed v5
+>>>>>>> 09a70eaaeebe5feec106c597c6eacee33b1a4c87
