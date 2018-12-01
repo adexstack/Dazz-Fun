@@ -92,8 +92,33 @@ Changing all ejs naming convention from moments to dazzfuns for consistency
 
 -----------------------------------------------------------------------------------------------Committed v4
 
-Add side bar
+"Add side bar
 Style the show page
-Add a custom main.css stylesheet in public/stylesheets directory
+Add a custom main.css stylesheet in public/stylesheets directory"
 
 -----------------------------------------------------------------------------------------------Committed v5
+
+# Add User Model
+* Install all packages needed for auth:
+ passport
+ passport-local
+ passport-local-mongoose
+ express-session
+Define User model
+
+# Register
+Configure Passport
+Add register routes
+Add register template
+
+# Login
+Add login routes
+Add login template
+
+#Logout/Navbar
+* Add logout route
+* Prevent user from adding comment if not signed in
+*Add links to navbar
+*Show/hide auth links correctly
+
+-----------------------------------------------------------------------------------------------Committed v6
