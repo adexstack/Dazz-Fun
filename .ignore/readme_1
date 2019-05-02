@@ -160,7 +160,7 @@ Destroy /dazzfun/:id       Delete
 * Add the new comment form
 
 * NEW  dazzfuns/:id/comments/new  GET
-* CREATE dazzfuns/:id/commenets   POST
+* CREATE dazzfuns/:id/comments   POST
 
 * Created two new directories under "VIEW" to have dazzfuns and comments template seperate
 * Added "Add New Comment" button in the show page
@@ -175,5 +175,15 @@ Add a custom main.css stylesheet in public/stylesheets directory
 Linked to it in app.js and header.ejs files
  Using: app.use(express.static(__dirname + "/public")); // connecting script to the public directory
 
-
 -----------------------------------------------------------------------------------------------Committed v5
+Show/hide 
+Add a custom main.css stylesheet in public/stylesheets directory
+-----------------------------------------------------------------------------------------------Committed v6
+
+Refactoring the app.js by creating routes directory and moving all the routes in there
+This is done by the use of Express Router and setting it to a variable (router, in this case)
+And then replacing all the app reference in our
+"({mergeParams: true})" is added to express router to associate comment with campground id, fixed the null error
+
+-----------------------------------------------------------------------------------------------Committed v7
+
