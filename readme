@@ -135,7 +135,11 @@ Use Express router to reorganize all routes; for cleaning up app.js codes
 -----------------------------------------------------------------------------------------------Committed v8
 
 # Users + Dazzfuns
+<<<<<<< HEAD
 * Prevent an unauthenticated user from creating event
+=======
+* Prevent an unauthenticated user from creating an event
+>>>>>>> ccc565814a76b692ff9df948e1fb954f96d8927b
 * Save username+id to newly created event
 
 -----------------------------------------------------------------------------------------------Committed v9
