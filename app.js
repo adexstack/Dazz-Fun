@@ -18,7 +18,8 @@ mongoose.connect("mongodb://localhost:27017/dazz_fun6", { useNewUrlParser: true 
 app.use(bodyParser.urlencoded({extended: true})); // to use for getting form bbody
 app.set("view engine", "ejs"); //to avoid dding (.ejs) to every route
 app.use(express.static(__dirname + "/public")); // connecting script to the public directory and __dirname is the current directory
-seedDB(); 
+
+// seedDB(); 
 
 // PASSPORT CONFIGURATION FOR AUTHENTICATION
 app.use(require("express-session")({

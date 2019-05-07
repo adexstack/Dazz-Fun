@@ -186,4 +186,13 @@ And then replacing all the app reference in our
 "({mergeParams: true})" is added to express router to associate comment with campground id, fixed the null error
 
 -----------------------------------------------------------------------------------------------Committed v7
+* Associate users and comments
+* Save author's name to a comment automatically
+
+added users and Id to models/comments.js to have comment associated with user by default (Used to manually 
+type in user before creating comment before)
+Commented out reference to User and Id in seeds.js as the schema has no knowledge of this yet.
+Removing the author feed from comment page as this isn't required anymore (from views/new.ejs)
+Adding ".username" in my views/dazzfuns/show.ejs to show only the logged in user for a comment
+<strong> <%= comment.author.username %> </strong>
 

@@ -25,7 +25,7 @@ var data = [
 // Remove all events    
 function seedDB(){
     Dazzfun.remove({}, function(err){
-        if(err){
+      /*  if(err){
             console.log(err);
         }
         console.log("removed dazzfuns!");
@@ -60,7 +60,8 @@ function seedDB(){
                 });
         });
         
-    });
+    });*/
 });
 }
+
 module.exports = seedDB;

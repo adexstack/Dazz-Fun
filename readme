@@ -129,3 +129,6 @@ Use Express router to reorganize all routes; for cleaning up app.js codes
 
 -----------------------------------------------------------------------------------------------Committed v7
 
+* Associate users and comments
+* Save author's name to a comment automatically
+
