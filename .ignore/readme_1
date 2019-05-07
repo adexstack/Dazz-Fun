@@ -195,4 +195,13 @@ Commented out reference to User and Id in seeds.js as the schema has no knowledg
 Removing the author feed from comment page as this isn't required anymore (from views/new.ejs)
 Adding ".username" in my views/dazzfuns/show.ejs to show only the logged in user for a comment
 <strong> <%= comment.author.username %> </strong>
+-----------------------------------------------------------------------------------------------Committed v8
+# Users + Dazzfuns
+* Prevent an unauthenticated user from creating an event
+* Save username+id to newly created event
+Added middleware IsLoggedIn to dazzfuns.js to ensure user not logged in can't create event
+Also added author's username and ID to dazzfuns.js and used it in the show.ejs to show;
+"Submitted my <user>"
+
+-----------------------------------------------------------------------------------------------Committed v9
 

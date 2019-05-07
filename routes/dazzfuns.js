@@ -18,16 +18,21 @@ router.get("/", function(req, res){
 //CREATE - add new dazzfun to DB
 // get data from form and add to moments array
 // redirect back to get /moments and show all moments (following REST concept)
-router.post("/", function(req, res){
+router.post("/", isLoggedIn, function(req, res){
     var event = req.body.event;
     var image = req.body.image;
     var description = req.body.description;
-    var newDazzfun = {event: event, image:image, description:description};
+    var author = {
+        id: req.user.id,
+        username: req.user.username
+    };
+    var newDazzfun = {event: event, image:image, description:description, author:author};
     // Create a new campground and save to database
     Dazzfun.create(newDazzfun, function(err, newlyCreated){
         if(err){
             console.log(err);
         } else {
+            console.log(newlyCreated);
             res.redirect("/dazzfuns"); // redirects back to dazzfuns page
         }
     
@@ -36,7 +41,7 @@ router.post("/", function(req, res){
 
 //NEW - show form to create new event
 // shows form for adding new dazzfun and posts the added dazzfun to POST /dazzfuns
-router.get("/new", function(req, res){
+router.get("/new", isLoggedIn, function(req, res){
     
     res.render("dazzfuns/new");
 });
@@ -56,5 +61,13 @@ router.get("/:id", function(req, res){
     });
     
 });
+
+//Middleware
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){ //checking if user is logged in
+        return next();
+    }
+    res.redirect("/login");
+}
 
 module.exports = router;
