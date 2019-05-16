@@ -204,4 +204,42 @@ Also added author's username and ID to dazzfuns.js and used it in the show.ejs t
 "Submitted my <user>"
 
 -----------------------------------------------------------------------------------------------Committed v9
+# Editing Dazzfuns events
+npm install method-override --save
+*Add Method-Override which allows me to use ?_method=DELETE" method="POST"> in my ejs's files (Also used for delete and update)
+* Add Edit route for Dazzfuns
+* Add Link to Edit Page
+* Add Update Route
+* Fix $set problem
 
+# Deleting Events
+* Add Destroy Route to routes/dazzfun.js
+* Add Delete button to show.ejs
+
+* User can only edit his/her campgrounds
+* User can only delete his/her campgrounds
+* Hide/Show edit and delete buttons
+
+# Authorisation
+* User can only edit his/her comments
+
+* User can only delete his/her comments
+
+* Hide/Show edit and delete buttons
+
+Refactor Middleware
+
+Note: Installing new node version; nvm ls; nvm -h; nvm alias default 10.15.3
+Added a pre hook so that comments are removed from DB when event is removed https://www.udemy.com/the-web-developer-bootcamp/learn/v4/questions/6168552
+Added a middleware ; if (foundComment.author.id.equals(req.user._id)) { // using mongoose built in ".equals" because using comparism operator === wasn't
+working cz though they both have the same id but at the back; one is mongoose obeject and the other is a string; hence failing comparism
+Moved all middlewares to a newly created middleware/index.js file and refence them from the routes for DRY coding
+Also using "next" which mopves to the next code once the condition is satisfied
+Added a logic in show.ejs to only show edit and delete to the currentuser and authorised creator
+
+# Editing Comments
+
+# 3 levels of authorizations
+1. You can view all and read all comments if not logged in
+2. You can create event and add comment if logged in
+3. You can only update or delete event/comment if you are the creator

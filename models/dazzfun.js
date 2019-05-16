@@ -1,5 +1,17 @@
 var mongoose = require("mongoose");
-// Shema Setup
+
+//Adding this so that when dazzfun event is removed; comment is also removed from the DB
+/*
+const Comment = require('./comment');
+dazzfunSchema.pre('remove', async function() {
+	await Comment.remove({
+		_id: {
+			$in: this.comments
+		}
+	});
+});
+*/
+// Schema Setup
 var dazzfunSchema = new mongoose.Schema({
     event: String,
     image: String,

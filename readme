@@ -21,7 +21,7 @@ Add on body parser
 setup route to show form
 Add basic unstyled form
 
-#Style the campgrounds page
+#Style the dazzfuns page
 ----------------------------
 *Add a better header/title using jumbotron in bootstrap
 *Make events display in a grid
@@ -29,7 +29,7 @@ Add basic unstyled form
 #Style the Navbar and Form
 ----------------------------
 * Add a navbar to all templates using the header.ejs
-* Style the new campground form
+* Style the new dazzfun form
 
 * Center the form in the /moments/new page
 * Stack the fields to lay on top of each other, rather than the horizontal way it is
@@ -75,7 +75,7 @@ Changing all ejs naming convention from moments to dazzfuns for consistency
 
 # Add comment model
 * Make the error go away
-* Display comments on campground show page
+* Display comments on dazzfun show page
 
 -----------------------------------------------------------------------------------------------Committed v3
 
@@ -135,11 +135,41 @@ Use Express router to reorganize all routes; for cleaning up app.js codes
 -----------------------------------------------------------------------------------------------Committed v8
 
 # Users + Dazzfuns
-<<<<<<< HEAD
+
 * Prevent an unauthenticated user from creating event
-=======
-* Prevent an unauthenticated user from creating an event
->>>>>>> ccc565814a76b692ff9df948e1fb954f96d8927b
 * Save username+id to newly created event
 
 -----------------------------------------------------------------------------------------------Committed v9
+
+*Add Method-Override
+* Add Edit route for Dazzfuns
+* Add Link to Edit Page
+* Add Update Route
+* Fix $set problem
+
+#Deleting Dazzfuns event
+* Add Destroy Route
+* Add Delete button
+
+#Authorization : Dazzfuns event
+
+* User can only edit his/her event
+* User can only delete his/her campgrounds
+* Hide/Show edit and delete buttons
+
+#Editing Comments
+* Add Edit route for comments
+* Add Edit button
+* Add Update route
+* Dazzfun Edit Route: Comment Edit Route:
+
+#Deleting Comments
+* Add Destroy route
+* Add Delete button
+* Dazzfun Destroy Route: /campgrounds/:id Comment Destroy Route: /dazzfuns/:id/comments/:comment_id
+
+#Authorization : Comments
+* User can only edit his/her comments
+* User can only delete his/her comments
+* Hide/Show edit and delete buttons
+* Refactor Middleware

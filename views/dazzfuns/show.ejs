@@ -13,12 +13,19 @@
             <div class="thumbnail">
                 <img class="img-responsive" src="<%= dazzfun.image %>">
                 <div class="caption-full">
-                    <h4 class="pull-right">Cutie</h4>
+                    <h4 class="pull-right">$7.00/night</h4>
                     <h4><a><%=dazzfun.event%></a></h4>
                     <p><%= dazzfun.description %></p>
                     <p>
                         <em>Submitted By <%= dazzfun.author.username %></em>
                     </p>
+                    <% if (currentUser && dazzfun.author.id.equals(currentUser._id)) { %>
+                        <a class="btn btn-xs btn-warning" 
+                        href="/dazzfuns/<%= dazzfun._id %>/edit">Edit</a>
+                        <form class="delete-form" action="/dazzfuns/<%= dazzfun._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    <% } %>
                 </div>
             </div>
             <div class="well">
@@ -34,6 +41,13 @@
                             <p> 
                                 <%= comment.text %>
                             </p>
+                        <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+                            <a class="btn btn-xs btn-warning" 
+                                href="/dazzfuns/<%=dazzfun._id %>/comments/<%=comment._id %>/edit">Edit</a>
+                            <form class="delete-form" action="/dazzfuns/<%=dazzfun._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                        <% } %>
                         </div>
                     </div>
                 <% }) %>

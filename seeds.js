@@ -1,67 +1,67 @@
-var mongoose = require("mongoose"),
-    Dazzfun  = require("./models/dazzfun"),
-    Comment  = require("./models/comment");
-
-// Creating an array of static data    
+var mongoose       = require("mongoose"),
+    dazzfun     = require("./models/dazzfun"),
+    Comment        = require("./models/comment");
+ 
 var data = [
     {
-        event: "Cloud's Rest",
-        image: "https://farm3.staticflickr.com/2580/3676091444_6a600d1e60.jpg",
-        description: "One brave soul did take a stab at translating the almost-not-quite-Latin. According to The Guardian, Jaspreet Singh Boparai undertook the challenge with the goal of making the text “precisely as incoherent in English as it is in Latin - and to make it incoherent in the same way”. As a result, “the Greek 'eu' in Latin became the French 'bien' [...] and the '-ing' ending in 'lorem ipsum' seemed best rendered by an '-iendum' in English.”"
+        event: "Cloud's Rest", 
+        image: "https://farm4.staticflickr.com/3795/10131087094_c1c0a1c859.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+        
     },
     {
-        event: "Shells Basin",
-        image: "https://farm9.staticflickr.com/8015/7495067468_b366013909.jpg",
-        description: "One brave soul did take a stab at translating the almost-not-quite-Latin. According to The Guardian, Jaspreet Singh Boparai undertook the challenge with the goal of making the text “precisely as incoherent in English as it is in Latin - and to make it incoherent in the same way”. As a result, “the Greek 'eu' in Latin became the French 'bien' [...] and the '-ing' ending in 'lorem ipsum' seemed best rendered by an '-iendum' in English.”"
+        event: "Desert Mesa", 
+        image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+        
+        
     },
     {
-        event: "Paradise siting",
-        image: "https://farm5.staticflickr.com/4247/34518518980_43679f6559.jpg",
-        description: "One brave soul did take a stab at translating the almost-not-quite-Latin. According to The Guardian, Jaspreet Singh Boparai undertook the challenge with the goal of making the text “precisely as incoherent in English as it is in Latin - and to make it incoherent in the same way”. As a result, “the Greek 'eu' in Latin became the French 'bien' [...] and the '-ing' ending in 'lorem ipsum' seemed best rendered by an '-iendum' in English.”"
+        event: "Canyon Floor", 
+        image: "https://farm1.staticflickr.com/189/493046463_841a18169e.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+        
     }
-    
-    ];
-
-// Remove all events    
+];
+ 
 function seedDB(){
-    Dazzfun.remove({}, function(err){
-      /*  if(err){
+   //Remove all dazzfuns
+  dazzfun.deleteMany({}, function(err){
+        if(err){
             console.log(err);
         }
         console.log("removed dazzfuns!");
-        Comment.remove({}, function(err){
-            if (err){
+        Comment.deleteMany({}, function(err) {
+            if(err){
                 console.log(err);
             }
-            console.log("removed comments");
-       
-        // add a few dazzfun events to start with
+            console.log("removed comments!");
+             //add a few dazzfuns
             data.forEach(function(seed){
-                Dazzfun.create(seed, function(err, dazzfun){
+                dazzfun.create(seed, function(err, dazzfun){
                     if(err){
                         console.log(err);
                     } else {
-                        console.log("Added a dazzfun event");
-                        // Creating a comment on the event
+                        console.log("added a dazzfun");
+                        //create a comment
                         Comment.create(
                             {
-                                text: "This is awesome, loving every bit of it",
-                                author: "Samson"
+                                text: "This place is great, but I wish there was internet",
+                                author: "Homer"
                             }, function(err, comment){
                                 if(err){
                                     console.log(err);
                                 } else {
                                     dazzfun.comments.push(comment);
                                     dazzfun.save();
-                                    console.log("Created a new comment");
+                                    console.log("Created new comment");
                                 }
                             });
                     }
                 });
+            });
         });
-        
-    });*/
-});
+     }); 
 }
-
-module.exports = seedDB;
+ 
+module.exports = seedDB ;
