@@ -63,7 +63,11 @@ router.get("/:id", function(req, res){
 // Edit Dazzfun Route
 router.get("/:id/edit", middleware.checkDazzfunOwnership, function(req, res) {
     Dazzfun.findById(req.params.id, function(err, foundDazzfun){
+        if(err){
+            req.flash("error", "You do not have permission to do that");
+        } else {
             res.render("dazzfuns/edit", {dazzfun: foundDazzfun});
+        }
     });
  });
 

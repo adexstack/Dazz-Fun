@@ -173,3 +173,12 @@ Use Express router to reorganize all routes; for cleaning up app.js codes
 * User can only delete his/her comments
 * Hide/Show edit and delete buttons
 * Refactor Middleware
+
+-----------------------------------------------------------------------------------------------Committed v10
+# Error handling and displaying
+Bootstrap.com/components/alert
+Adding Error handling for success and error
+Displaying Clear error and success messages to users taking advantage of the "err" from
+mongoose while also customising mine
+
+-----------------------------------------------------------------------------------------------Committed v10.1

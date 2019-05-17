@@ -243,3 +243,12 @@ Added a logic in show.ejs to only show edit and delete to the currentuser and au
 1. You can view all and read all comments if not logged in
 2. You can create event and add comment if logged in
 3. You can only update or delete event/comment if you are the creator
+
+-----------------------------------------------------------------------------------------------Committed v10
+# Error handling and displaying
+Bootstrap.com/components/alert
+Adding Error handling for success and error
+Displaying Clear error and success messages to users taking advantage of the "err" from
+mongoose while also customising mine
+
+-----------------------------------------------------------------------------------------------Committed v10.1

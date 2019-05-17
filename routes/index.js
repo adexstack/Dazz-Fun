@@ -17,10 +17,11 @@ router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user){ //provided by passport-local library and hashing the password
         if (err){
-            console.log(err.name);
-            return res.render("register");
+            req.flash("error", err.message);
+            return res.render("register", {"error": err.message});
         }
         passport.authenticate("local")(req, res, function(){
+            req.flash("success", "Welcome to Dazzling Fun Moments " + (user.username).toUpperCase());
             res.redirect("/dazzfuns");
         });
     });
@@ -42,15 +43,8 @@ router.post("/login", passport.authenticate("local", //the localStrategy would t
 // logout route
 router.get("/logout", function(req, res){
     req.logout(); // logout from localStrategy methods
+    req.flash("success", "Logged you out!")
     res.redirect("/dazzfuns");
 });
-
-// Middleware
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){ //checking if user is logged in
-        return next();
-    }
-    res.redirect("/login");
-}
 
 module.exports = router;

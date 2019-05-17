@@ -6,6 +6,7 @@ var express    = require("express"),
     LocalStrategy = require("passport-local"),
     Dazzfun    = require("./models/dazzfun"),
     methodOverride = require("method-override"),
+    flash      = require("connect-flash"),
     Comment    = require("./models/comment"),
     User      = require("./models/user"),
     seedDB     = require("./seeds");
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: true})); // to use for getting form bbo
 app.set("view engine", "ejs"); //to avoid dding (.ejs) to every route
 app.use(express.static(__dirname + "/public")); // connecting script to the public directory and __dirname is the current directory
 app.use(methodOverride("_method"));
+app.use(flash());
 
 // seedDB(); 
 
@@ -37,7 +39,9 @@ passport.deserializeUser(User.deserializeUser()); // passport-local-mongoose" me
 
 // middleware that would be used on every route //using the currentUser variable in all ejs templates
 app.use(function(req, res, next){
-    res.locals.currentUser = req.user; // setting currentUser to req.user
+    res.locals.currentUser = req.user // setting currentUser to req.user
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 
