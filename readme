@@ -181,4 +181,10 @@ Adding Error handling for success and error
 Displaying Clear error and success messages to users taking advantage of the "err" from
 mongoose while also customising mine
 
------------------------------------------------------------------------------------------------Committed v10.1
+-----------------------------------------------------------------------------------------------Committed v11
+
+# Added 5 images for animation fading effect on the landing page
+
+Used for animation: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+
+-----------------------------------------------------------------------------------------------Committed v12

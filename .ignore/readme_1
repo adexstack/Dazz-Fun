@@ -251,4 +251,21 @@ Adding Error handling for success and error
 Displaying Clear error and success messages to users taking advantage of the "err" from
 mongoose while also customising mine
 
------------------------------------------------------------------------------------------------Committed v10.1
+-----------------------------------------------------------------------------------------------Committed v11
+# Added 5 images for animation fading effect on the landing page
+https://github.com/nax3t/webdevbootcamp/tree/master/YelpCamp/background_slider
+
+# Partials.css
+Added bootstrap 3.3.5
+Added stylesheets/landing.css for my custom stylesheet for the landing page
+as I'm not using main.ss
+Added moderniser to handle browser version checking compability and add classes
+to handle older browser
+
+npm install -g nodemon to prevent restarting the server everytime
+
+Used for animation: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+
+
+
+-----------------------------------------------------------------------------------------------Committed v12
