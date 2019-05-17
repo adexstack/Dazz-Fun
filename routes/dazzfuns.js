@@ -15,18 +15,25 @@ router.get("/", function(req, res){
     });
 });
 
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = (today.getHours()+1) + ":" + today.getMinutes();
+//var dateTime = date+' '+time;
+
 //CREATE - add new dazzfun to DB
 // get data from form and add to moments array
 // redirect back to get /moments and show all moments (following REST concept)
 router.post("/", middleware.isLoggedIn, function(req, res){
     var event = req.body.event;
+    var price = req.body.price;
+    var dateTime = date+' '+time;
     var image = req.body.image;
     var description = req.body.description;
     var author = {
         id: req.user.id,
         username: req.user.username
     };
-    var newDazzfun = {event: event, image:image, description:description, author:author};
+    var newDazzfun = {event: event, price: price, dateTime: dateTime, image:image, description:description, author:author};
     // Create a new dazzfun event and save to database
     Dazzfun.create(newDazzfun, function(err, newlyCreated){
         if(err){

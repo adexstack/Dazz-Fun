@@ -15,6 +15,7 @@ dazzfunSchema.pre('remove', async function() {
 var dazzfunSchema = new mongoose.Schema({
     event: String,
     image: String,
+    dateTime: String,
     description: String,
     author: {
         id: {
