@@ -1,17 +1,24 @@
 <% include ../partials/header %>
 <div class="container">
     <div class="row">
-            <h1 style="text-align: center;">Create a New Moment</h1>
-        <div style="width: 30%; margin: 0 auto;">
+            <h1 style="text-align: center;">Create a New Dazzling Moment</h1>
+        <div style="width: 30%; margin: 25px auto;">
             <form action="/dazzfuns" method="POST">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="event" placeholder="event">
+                    <label for="event">Event</label>
+                    <input class="form-control" type="text" name="event" id="event" placeholder="Chessington Family Day">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="image" placeholder="image url">
+                    <label for="image">Image Url</label>
+                    <input class="form-control" type="text" name="image" id="image" placeholder="image url">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="description" placeholder="add description">
+                    <label for="description">Description</label>
+                    <input class="form-control" type="text" name="description" id="description" placeholder="add description">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input class="form-control" type="text" name="location" id="location" placeholder="Chessington World of Adventures Resort, Chessington">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>

@@ -16,6 +16,9 @@ var dazzfunSchema = new mongoose.Schema({
     event: String,
     image: String,
     dateTime: String,
+    location: String,
+    lat: Number,
+    lng: Number,
     description: String,
     author: {
         id: {

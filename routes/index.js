@@ -18,7 +18,7 @@ router.post("/register", function(req, res){
     User.register(newUser, req.body.password, function(err, user){ //provided by passport-local library and hashing the password
         if (err){
             req.flash("error", err.message);
-            return res.render("register", {"error": err.message});
+            return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
             req.flash("success", "Welcome to Dazzling Fun Moments " + (user.username).toUpperCase());

@@ -154,7 +154,7 @@ Use Express router to reorganize all routes; for cleaning up app.js codes
 #Authorization : Dazzfuns event
 
 * User can only edit his/her event
-* User can only delete his/her campgrounds
+* User can only delete his/her dazzfuns
 * Hide/Show edit and delete buttons
 
 #Editing Comments
@@ -166,7 +166,7 @@ Use Express router to reorganize all routes; for cleaning up app.js codes
 #Deleting Comments
 * Add Destroy route
 * Add Delete button
-* Dazzfun Destroy Route: /campgrounds/:id Comment Destroy Route: /dazzfuns/:id/comments/:comment_id
+* Dazzfun Destroy Route: /dazzfuns/:id Comment Destroy Route: /dazzfuns/:id/comments/:comment_id
 
 #Authorization : Comments
 * User can only edit his/her comments
@@ -191,3 +191,10 @@ Used for animation: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-t
 
 Added Datetime to show Event creation date and time
 -----------------------------------------------------------------------------------------------Committed v13
+
+# Adding Geocoding Map for address using google geocoding API
+GEOCODER_API_KEY is stored in .env file
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<API-KEY>&callback=initMap"></script> in dazzfuns/show.ejs
+Note: Maps is loading briefly, issue to be fixed in later release
+-----------------------------------------------------------------------------------------------Committed v14
+

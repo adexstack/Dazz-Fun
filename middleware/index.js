@@ -11,7 +11,7 @@ middlewareObj.checkDazzfunOwnership = function(req, res, next){
             req.flash("error", "Dazzfun Event not found");
             res.redirect("back");
           } else {
-              // does user own the campground?
+              // does user own the dazzfun?
            if (foundDazzfun.author.id.equals(req.user._id)) { // cant use comparism check === cz author.id gives an object and user._id gives  a string
               next();
            } else {
@@ -26,7 +26,6 @@ middlewareObj.checkDazzfunOwnership = function(req, res, next){
     }
 }
     
-
 middlewareObj.checkCommentOwnership = function(req, res, next){
     if(req.isAuthenticated()){
         Comment.findById(req.params.comment_id, function(err, foundComment){
@@ -42,15 +41,12 @@ middlewareObj.checkCommentOwnership = function(req, res, next){
            }
           }
         });
-        
     } else {
         req.flash("error", "You need to be logged in to do that");
         res.redirect("back");
     }
 };
      
-
-// middleware       
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
