@@ -1,8 +1,10 @@
 require('dotenv').config();
+
 var express    = require("express"),
     app        = express(),
     bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
+    moment = require('moment'),
     passport   = require("passport"),
     LocalStrategy = require("passport-local"),
     Dazzfun    = require("./models/dazzfun"),
@@ -25,7 +27,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 // seedDB(); 
-
+app.locals.moment = require('moment');
 // PASSPORT CONFIGURATION FOR AUTHENTICATION
 app.use(require("express-session")({
     secret: "Once again rusty wins context dog!",

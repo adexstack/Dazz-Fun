@@ -15,11 +15,10 @@
             <div class="thumbnail">
                 <img id="image" class="img-responsive" src="<%= dazzfun.image %>">
                 <div class="caption-full">
-                    <h4 class="pull-right"><%= dazzfun.dateTime %></h4>
                     <h4><a><%=dazzfun.event%></a></h4>
                     <p><%= dazzfun.description %></p>
                     <p>
-                        <em>Submitted By <%= dazzfun.author.username %></em>
+                        <em>Submitted by: <%= dazzfun.author.username %>, <%= moment(dazzfun.createdAt).fromNow() %></em>
                     </p>
                     <% if (currentUser && dazzfun.author.id.equals(currentUser._id)) { %>
                         <a class="btn btn-xs btn-warning" 
@@ -39,7 +38,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <strong> <%= comment.author.username %> </strong>
-                            <span class="pull-right">10 days ago</span>
+                            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
                             <p> 
                                 <%= comment.text %>
                             </p>

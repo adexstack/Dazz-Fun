@@ -196,5 +196,17 @@ Added Datetime to show Event creation date and time
 GEOCODER_API_KEY is stored in .env file
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<API-KEY>&callback=initMap"></script> in dazzfuns/show.ejs
 Note: Maps is loading briefly, issue to be fixed in later release
+
 -----------------------------------------------------------------------------------------------Committed v14
+
+I removed the Datetime() implementation and added relative moment for Comment and Event created
+Adding ; Time passed since date created
+https://momentjs.com/
+npm i -S moment
+Installed moment js
+Require moment and added it to app.locals
+Update dazzfun and comment models
+Used moment in my show.ejs file
+
+-----------------------------------------------------------------------------------------------Committed v15
 

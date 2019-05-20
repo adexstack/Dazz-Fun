@@ -25,9 +25,6 @@ router.get("/", function(req, res){
     });
 });
 
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = (today.getHours()+1) + ":" + today.getMinutes();
 //var dateTime = date+' '+time;
 
 //CREATE - add new dazzfun to DB
@@ -35,7 +32,6 @@ var time = (today.getHours()+1) + ":" + today.getMinutes();
 // redirect back to get /moments and show all moments (following REST concept)
 router.post("/", middleware.isLoggedIn, function(req, res){
     var event = req.body.event;
-    var dateTime = date+' '+time;
     var image = req.body.image;
     var description = req.body.description;
     var author = {
@@ -51,7 +47,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var lat = data[0].latitude;
     var lng = data[0].longitude;
     var location = data[0].formattedAddress;
-    var newDazzfun = {event: event, dateTime: dateTime, image:image, description:description, author:author, location: location, lat: lat, lng: lng};
+    var newDazzfun = {event: event, image:image, description:description, author:author, location: location, lat: lat, lng: lng};
     // Create a new dazzfun event and save to database
     Dazzfun.create(newDazzfun, function(err, newlyCreated){
         if(err){

@@ -15,11 +15,11 @@ dazzfunSchema.pre('remove', async function() {
 var dazzfunSchema = new mongoose.Schema({
     event: String,
     image: String,
-    dateTime: String,
     location: String,
     lat: Number,
     lng: Number,
     description: String,
+    createdAt: { type: Date, default: Date.now },
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
