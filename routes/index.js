@@ -15,6 +15,10 @@ router.get("/register", function(req, res){
 // handle sign up logic
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
+    //eval(require('locus')); // breakpoint used to freeze code to test it out
+    if(req.body.adminCode === 'secretcode123') {
+        newUser.isAdmin = true;
+    }
     User.register(newUser, req.body.password, function(err, user){ //provided by passport-local library and hashing the password
         if (err){
             req.flash("error", err.message);

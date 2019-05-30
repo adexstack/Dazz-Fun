@@ -20,7 +20,7 @@
                     <p>
                         <em>Submitted by: <%= dazzfun.author.username %>, <%= moment(dazzfun.createdAt).fromNow() %></em>
                     </p>
-                    <% if (currentUser && dazzfun.author.id.equals(currentUser._id)) { %>
+                    <% if (currentUser && dazzfun.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin === true) { %>
                         <a class="btn btn-xs btn-warning" 
                         href="/dazzfuns/<%= dazzfun._id %>/edit">Edit</a>
                         <form class="delete-form" action="/dazzfuns/<%= dazzfun._id %>?_method=DELETE" method="POST">
@@ -42,11 +42,13 @@
                             <p> 
                                 <%= comment.text %>
                             </p>
-                        <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+                        <% if (currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                          <div class="pull-right">
                             <a class="btn btn-xs btn-warning"   href="/dazzfuns/<%=dazzfun._id %>/comments/<%=comment._id %>/edit">Edit</a>
                             <form class="delete-form" action="/dazzfuns/<%=dazzfun._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
                                 <input type="submit" class="btn btn-xs btn-danger" value="Delete">
                             </form>
+                          </div>
                         <% } %>
                         </div>
                     </div>
@@ -82,6 +84,6 @@
     });
   }
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJA2zve_1M_9Uk9KzWy9I4MDdKs4UrVQA&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMwu6n8T_td4ShdQOPdx8Yj1qrNFskexM&callback=initMap"></script>
 
 <% include ../partials/footer %>

@@ -210,3 +210,8 @@ Used moment in my show.ejs file
 
 -----------------------------------------------------------------------------------------------Committed v15
 
+Added <secretcode> for admin user role to edit or delete any event/comment
+Implemented the sign up logic to allow admin to be verified with a known code
+Elevate admin user permission to delete/edit events, comments created by anyone
+
+-----------------------------------------------------------------------------------------------Committed v16

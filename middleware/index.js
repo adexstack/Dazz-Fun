@@ -12,7 +12,7 @@ middlewareObj.checkDazzfunOwnership = function(req, res, next){
             res.redirect("back");
           } else {
               // does user own the dazzfun?
-           if (foundDazzfun.author.id.equals(req.user._id)) { // cant use comparism check === cz author.id gives an object and user._id gives  a string
+           if (foundDazzfun.author.id.equals(req.user._id) || req.user.isAdmin) { // cant use comparism check === cz author.id gives an object and user._id gives  a string
               next();
            } else {
                req.flash("error", "You need to be logged in to do thadon't have permission to do that");
@@ -33,7 +33,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next){
             res.redirect("back");
           } else {
               // does user own the comment?
-           if (foundComment.author.id.equals(req.user._id)) { // cant use comparism check === cz author.id gives an object and user._id gives  a string
+           if (foundComment.author.id.equals(req.user._id) || req.user.isAdmin) { // cant use comparism check === cz author.id gives an object and user._id gives  a string
               next();
            } else {
                req.flash("error", "You do not have permission to do that");
